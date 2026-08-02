@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediBill Cloud | Invoice</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="../css/print.css">
+</head>
+
+<body>
+    <main class="invoice">
+        <header class="invoice-header">
+            <div class="logo">
+                <div class="logo-mark">
+                    <i class="fa-solid fa-heart-pulse"></i>
+                </div>
+
+                <div>
+                    <h1>MediBill Cloud</h1>
+                    <p>Smart Medical Billing</p>
+                </div>
+            </div>
+
+            <div class="invoice-title">
+                <p class="invoice-label">MEDICAL INVOICE</p>
+                <h2>Invoice</h2>
+                <p>
+                    <i class="fa-regular fa-calendar"></i>
+                    <span id="date">—</span>
+                </p>
+            </div>
+        </header>
+
+        <section class="invoice-details">
+            <div class="detail-card">
+                <p class="detail-label">Bill Number</p>
+                <p class="detail-value" id="billNumber">—</p>
+            </div>
+
+            <div class="detail-card">
+                <p class="detail-label">Patient</p>
+                <p class="detail-value" id="patient">—</p>
+            </div>
+
+            <div class="detail-card">
+                <p class="detail-label">Payment Method</p>
+                <p class="detail-value" id="payment">—</p>
+            </div>
+
+            <div class="detail-card">
+                <p class="detail-label">GST</p>
+                <p class="detail-value">
+                    <span id="gst">0.00</span>%
+                </p>
+            </div>
+        </section>
+
+        <section class="invoice-items-section">
+            <h3>Bill Items</h3>
+
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Item</th>
+                            <th>Type</th>
+                            <th>Quantity</th>
+                            <th>Unit Price</th>
+                            <th>Amount</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="billItems">
+                        <tr>
+                            <td colspan="5" class="empty-state">
+                                Loading invoice items...
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="summary">
+            <table>
+                <tbody>
+                    <tr>
+                        <td>Subtotal</td>
+                        <td>₹<span id="subtotal">0.00</span></td>
+                    </tr>
+
+                    <tr>
+                        <td>GST (<span id="gst2">0.00</span>%)</td>
+                        <td id="gstAmount">Calculated in total</td>
+                    </tr>
+
+                    <tr class="total">
+                        <td>Total Amount</td>
+                        <td>₹<span id="total">0.00</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <footer class="invoice-footer">
+            <p>Thank you for choosing MediBill Healthcare.</p>
+            <p>Please keep this invoice for your records.</p>
+        </footer>
+
+        <div class="invoice-actions">
+            <a href="History.html" class="back-btn">
+                <i class="fa-solid fa-arrow-left"></i>
+                Back to History
+            </a>
+
+            <button type="button" class="print-btn" id="printButton">
+                <i class="fa-solid fa-print"></i>
+                Print Invoice
+            </button>
+        </div>
+    </main>
+
+    <script src="../js/print.js"></script>
+</body>
+</html>

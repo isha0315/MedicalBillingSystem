@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sign in to MediBill Cloud.">
+    <title>MediBill Cloud | Sign In</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/login.css">
+</head>
+
+<body class="auth-page">
+    <div class="blob blob1"></div>
+    <div class="blob blob2"></div>
+
+    <main class="login-container">
+        <section class="left-panel">
+            <div class="brand">
+                <div class="brand-icon">
+                    <i class="fa-solid fa-heart-pulse"></i>
+                </div>
+
+                <h2>MediBill Cloud</h2>
+                <p>Smart. Secure. Medical Billing.</p>
+            </div>
+
+            <div class="illustration" aria-hidden="true">
+                <i class="fa-solid fa-hospital-user"></i>
+            </div>
+
+            <h1>Welcome Back</h1>
+
+            <p>
+                Manage patients, create accurate invoices, and review billing
+                history from one secure healthcare workspace.
+            </p>
+        </section>
+
+        <section class="right-panel">
+            <p class="auth-eyebrow">WELCOME BACK</p>
+            <h2>Sign In</h2>
+
+            <p class="subtitle">
+                Enter your account details to continue to your dashboard.
+            </p>
+
+            <form id="loginForm">
+                <div class="input-group">
+                    <label for="email">Email Address</label>
+
+                    <div class="input-box">
+                        <i class="fa-regular fa-envelope"></i>
+
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="Enter your email address"
+                            autocomplete="email"
+                            required>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Password</label>
+
+                    <div class="input-box">
+                        <i class="fa-solid fa-lock"></i>
+
+                        <input
+                            type="password"
+                            id="password"
+                            placeholder="Enter your password"
+                            autocomplete="current-password"
+                            required>
+
+                        <button
+                            type="button"
+                            class="togglePassword"
+                            aria-label="Show or hide password">
+                            <i class="fa-solid fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <button type="submit" class="login-btn">
+                    <i class="fa-solid fa-right-to-bracket"></i>
+                    Sign In
+                </button>
+            </form>
+
+            <p class="register-text">
+                Don't have an account?
+                <a href="register.html">Create Account</a>
+            </p>
+
+            <a href="index.html" class="back-home">
+                <i class="fa-solid fa-arrow-left"></i>
+                Back to Home
+            </a>
+        </section>
+    </main>
+
+    <script src="../js/auth.js"></script>
+</body>
+</html>

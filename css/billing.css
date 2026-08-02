@@ -1,0 +1,152 @@
+.page-header {
+    align-items: flex-end;
+}
+
+.page-header h1 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.page-header h1 i {
+    color: var(--emerald-600);
+}
+
+.welcome-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 22px;
+    padding: 24px;
+    margin-bottom: 24px;
+    border: 1px solid #c8eadc;
+    border-radius: 16px;
+    background: linear-gradient(120deg, #e6f9f0 0%, #f8fffc 100%);
+}
+
+.welcome-left h2 {
+    margin-bottom: 5px;
+    color: var(--teal-900);
+    font-size: 21px;
+}
+
+.welcome-left h2 i {
+    color: var(--emerald-600);
+}
+
+.welcome-left p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.welcome-right {
+    color: var(--emerald-600);
+    font-size: 58px;
+}
+
+.card > h2 {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin-bottom: 20px;
+    color: var(--teal-900);
+    font-size: 20px;
+}
+
+.card > h2 i {
+    color: var(--emerald-600);
+}
+
+.billing-section-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 16px;
+    margin-top: 30px;
+    margin-bottom: 12px;
+}
+
+.billing-section-heading h3,
+.summary-section h3 {
+    margin: 0 0 3px;
+    color: var(--teal-900);
+    font-size: 17px;
+}
+
+.billing-section-heading p {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.billing-section-heading .primary-btn {
+    padding: 10px 14px;
+    font-size: 13px;
+    white-space: nowrap;
+}
+
+.billing-table {
+    margin: 0;
+}
+
+.billing-table select,
+.billing-table input {
+    min-width: 80px;
+    padding: 9px;
+    font-size: 13px;
+}
+
+.billing-table input[readonly] {
+    background: #f4fbf9;
+    color: #527169;
+}
+
+.removeServiceBtn,
+.removeMedicineBtn {
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: 8px;
+    background: #fef2f2;
+    color: #b91c1c;
+    transition: 0.2s ease;
+}
+
+.removeServiceBtn:hover,
+.removeMedicineBtn:hover {
+    background: #fee2e2;
+    transform: translateY(-1px);
+}
+
+.summary-section {
+    margin-top: 28px;
+    padding: 22px;
+    border: 1px solid #d8ece5;
+    border-radius: 13px;
+    background: #f9fffc;
+}
+
+.summary-section .form-grid {
+    margin-top: 16px;
+}
+
+.summary-section input[readonly] {
+    background: #ecfdf5;
+    color: var(--teal-900);
+    font-weight: 700;
+}
+
+@media (max-width: 700px) {
+    .welcome-card,
+    .billing-section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .welcome-right {
+        display: none;
+    }
+
+    .billing-section-heading .primary-btn {
+        width: 100%;
+    }
+}

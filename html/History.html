@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="View, search, and print medical billing records.">
+    <title>MediBill Cloud | Billing History</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/billing_history.css">
+</head>
+
+<body>
+    <aside class="sidebar">
+        <div class="logo">
+            <div class="logo-icon">
+                <i class="fa-solid fa-heart-pulse"></i>
+            </div>
+
+            <div>
+                <h2>MediBill</h2>
+                <p>Healthcare</p>
+            </div>
+        </div>
+
+        <nav aria-label="Main navigation">
+            <ul class="menu">
+                <li>
+                    <a href="dashboard.html">
+                        <i class="fa-solid fa-house"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="patient.html">
+                        <i class="fa-solid fa-user-group"></i>
+                        <span>Patients</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="billing.html">
+                        <i class="fa-solid fa-file-invoice-dollar"></i>
+                        <span>Billing</span>
+                    </a>
+                </li>
+
+                <li class="active">
+                    <a href="History.html">
+                        <i class="fa-solid fa-clock-rotate-left"></i>
+                        <span>Billing History</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="logout">
+            <a href="login.html">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span>Sign out</span>
+            </a>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <div class="dashboard-container">
+            <header class="page-header">
+                <div>
+                    <p class="eyebrow">FINANCE</p>
+                    <h1>
+                        <i class="fa-solid fa-clock-rotate-left"></i>
+                        Billing History
+                    </h1>
+                    <p>View completed invoices and print them whenever needed.</p>
+                </div>
+
+                <a href="billing.html" class="primary-btn">
+                    <i class="fa-solid fa-plus"></i>
+                    Create Bill
+                </a>
+            </header>
+
+            <section class="card">
+                <div class="history-toolbar">
+                    <div class="search-box">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+
+                        <input
+                            type="search"
+                            id="searchBill"
+                            placeholder="Search by bill number or patient name"
+                            autocomplete="off">
+                    </div>
+
+                    <p id="billCount" class="bill-count"></p>
+                </div>
+
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Bill Number</th>
+                                <th>Patient</th>
+                                <th>Total Amount</th>
+                                <th>Payment</th>
+                                <th>Date</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="billTableBody">
+                            <tr>
+                                <td colspan="6" class="empty-state">
+                                    Loading billing history...
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <footer class="footer">
+                <p>&copy; 2026 MediBill Healthcare. All rights reserved.</p>
+            </footer>
+        </div>
+    </main>
+
+    <script src="../js/billing_history.js"></script>
+</body>
+</html>

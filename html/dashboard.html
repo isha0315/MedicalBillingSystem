@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MediBill Cloud dashboard for patients, billing, and invoice history.">
+    <title>MediBill Cloud | Dashboard</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+
+<body>
+    <aside class="sidebar">
+        <div class="logo">
+            <div class="logo-icon">
+                <i class="fa-solid fa-heart-pulse"></i>
+            </div>
+
+            <div>
+                <h2>MediBill</h2>
+                <p>Healthcare</p>
+            </div>
+        </div>
+
+        <nav aria-label="Main navigation">
+            <ul class="menu">
+                <li class="active">
+                    <a href="dashboard.html">
+                        <i class="fa-solid fa-house"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="patient.html">
+                        <i class="fa-solid fa-user-group"></i>
+                        <span>Patients</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="billing.html">
+                        <i class="fa-solid fa-file-invoice-dollar"></i>
+                        <span>Billing</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="History.html">
+                        <i class="fa-solid fa-clock-rotate-left"></i>
+                        <span>Billing History</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="logout">
+            <a href="login.html" id="logoutBtn">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span>Sign out</span>
+            </a>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <div class="dashboard-container">
+            <header class="topbar">
+                <div class="top-left">
+                    <p class="eyebrow">OVERVIEW</p>
+                    <h1>Dashboard</h1>
+                    <p id="welcomeMessage">Welcome back</p>
+                </div>
+
+                <div class="profile">
+                    <div class="profile-icon">
+                        <i class="fa-solid fa-user-doctor"></i>
+                    </div>
+
+                    <div>
+                        <h4 id="profileName">Loading...</h4>
+                        <span>Medical Staff</span>
+                    </div>
+                </div>
+            </header>
+
+            <section class="welcome-banner">
+                <div class="welcome-text">
+                    <h2 id="greeting">Welcome</h2>
+
+                    <p>
+                        Manage patient records, create bills, and review invoice history
+                        from one secure healthcare workspace.
+                    </p>
+
+                    <a href="billing.html" class="primary-btn">
+                        Create Bill
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="welcome-image" aria-hidden="true">
+                    <i class="fa-solid fa-hospital-user"></i>
+                </div>
+            </section>
+
+            <section class="stats-grid">
+                <article class="stat-card">
+                    <div class="stat-icon patients">
+                        <i class="fa-solid fa-user-group"></i>
+                    </div>
+
+                    <div>
+                        <h2 id="totalPatients">0</h2>
+                        <p>Total Patients</p>
+                    </div>
+                </article>
+
+                <article class="stat-card">
+                    <div class="stat-icon bills">
+                        <i class="fa-solid fa-file-invoice-dollar"></i>
+                    </div>
+
+                    <div>
+                        <h2 id="totalBills">0</h2>
+                        <p>Total Bills</p>
+                    </div>
+                </article>
+
+                <article class="stat-card">
+                    <div class="stat-icon revenue">
+                        <i class="fa-solid fa-indian-rupee-sign"></i>
+                    </div>
+
+                    <div>
+                        <h2 id="totalRevenue">₹0</h2>
+                        <p>Total Revenue</p>
+                    </div>
+                </article>
+
+                <article class="stat-card">
+                    <div class="stat-icon pending-icon">
+                        <i class="fa-solid fa-circle-check"></i>
+                    </div>
+
+                    <div>
+                        <h2 id="pendingBills">0</h2>
+                        <p>Pending Bills</p>
+                    </div>
+                </article>
+            </section>
+
+            <section class="dashboard-grid">
+                <article class="card">
+                    <div class="card-heading">
+                        <div>
+                            <p class="eyebrow">SHORTCUTS</p>
+                            <h3>Quick Actions</h3>
+                        </div>
+                    </div>
+
+                    <div class="quick-actions">
+                        <a href="patient.html" class="action-btn">
+                            <i class="fa-solid fa-user-plus"></i>
+                            <span>Add Patient</span>
+                        </a>
+
+                        <a href="billing.html" class="action-btn">
+                            <i class="fa-solid fa-file-circle-plus"></i>
+                            <span>Create Bill</span>
+                        </a>
+
+                        <a href="History.html" class="action-btn">
+                            <i class="fa-solid fa-clock-rotate-left"></i>
+                            <span>Billing History</span>
+                        </a>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="card-heading">
+                        <div>
+                            <p class="eyebrow">PATIENTS</p>
+                            <h3>Recent Patients</h3>
+                        </div>
+
+                        <a href="patient.html" class="text-link">View all</a>
+                    </div>
+
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Age</th>
+                                    <th>Condition</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="recentPatients">
+                                <tr>
+                                    <td colspan="3" class="empty-state">
+                                        Loading patients...
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </article>
+            </section>
+
+            <section class="card">
+                <div class="card-heading">
+                    <div>
+                        <p class="eyebrow">INVOICES</p>
+                        <h3>Recent Bills</h3>
+                    </div>
+
+                    <a href="History.html" class="text-link">View all</a>
+                </div>
+
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Bill Number</th>
+                                <th>Patient</th>
+                                <th>Amount</th>
+                                <th>Payment Status</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="recentBills">
+                            <tr>
+                                <td colspan="4" class="empty-state">
+                                    Loading billing records...
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <footer class="footer">
+                <p>&copy; 2026 MediBill Healthcare. All rights reserved.</p>
+            </footer>
+        </div>
+    </main>
+
+    <script src="../js/dashboard.js"></script>
+</body>
+</html>

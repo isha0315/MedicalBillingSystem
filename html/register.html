@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Create a MediBill Cloud account.">
+    <title>MediBill Cloud | Create Account</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/register.css">
+</head>
+
+<body class="register-page">
+    <div class="blob blob1"></div>
+    <div class="blob blob2"></div>
+
+    <main class="register-container">
+        <section class="left-panel">
+            <div class="brand">
+                <div class="brand-icon">
+                    <i class="fa-solid fa-heart-pulse"></i>
+                </div>
+
+                <h1>MediBill Cloud</h1>
+                <p>Smart. Secure. Medical Billing.</p>
+            </div>
+
+            <div class="register-illustration" aria-hidden="true">
+                <i class="fa-solid fa-user-doctor"></i>
+            </div>
+
+            <h2>Create Your Account</h2>
+
+            <p>
+                Join MediBill Cloud to manage patient records, invoices,
+                and medical billing securely from one workspace.
+            </p>
+        </section>
+
+        <section class="right-panel">
+            <form id="registerForm">
+                <p class="auth-eyebrow">GET STARTED</p>
+                <h2>Create Account</h2>
+
+                <p class="subtitle">
+                    Complete the details below to create your account.
+                </p>
+
+                <div class="input-group">
+                    <label for="fullName">Full Name</label>
+
+                    <div class="input-box">
+                        <i class="fa-regular fa-user"></i>
+
+                        <input
+                            type="text"
+                            id="fullName"
+                            placeholder="Enter your full name"
+                            maxlength="100"
+                            autocomplete="name"
+                            required>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="email">Email Address</label>
+
+                    <div class="input-box">
+                        <i class="fa-regular fa-envelope"></i>
+
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="Enter your email address"
+                            maxlength="254"
+                            autocomplete="email"
+                            required>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="username">Username</label>
+
+                    <div class="input-box">
+                        <i class="fa-regular fa-id-badge"></i>
+
+                        <input
+                            type="text"
+                            id="username"
+                            placeholder="Choose a username"
+                            maxlength="50"
+                            autocomplete="username"
+                            required>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Password</label>
+
+                    <div class="input-box">
+                        <i class="fa-solid fa-lock"></i>
+
+                        <input
+                            type="password"
+                            id="password"
+                            placeholder="At least 8 characters"
+                            minlength="8"
+                            autocomplete="new-password"
+                            required>
+
+                        <button
+                            type="button"
+                            class="togglePassword"
+                            aria-label="Show or hide password">
+                            <i class="fa-solid fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="confirmPassword">Confirm Password</label>
+
+                    <div class="input-box">
+                        <i class="fa-solid fa-lock"></i>
+
+                        <input
+                            type="password"
+                            id="confirmPassword"
+                            placeholder="Re-enter your password"
+                            minlength="8"
+                            autocomplete="new-password"
+                            required>
+
+                        <button
+                            type="button"
+                            class="togglePassword"
+                            aria-label="Show or hide password">
+                            <i class="fa-solid fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <button type="submit" class="register-btn">
+                    <i class="fa-solid fa-user-plus"></i>
+                    Create Account
+                </button>
+
+                <p class="login-link">
+                    Already have an account?
+                    <a href="login.html">Sign In</a>
+                </p>
+
+                <a href="index.html" class="back-home">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    Back to Home
+                </a>
+            </form>
+        </section>
+    </main>
+
+    <script src="../js/auth.js"></script>
+</body>
+</html>

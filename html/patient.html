@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Add and view patient records in MediBill Cloud.">
+    <title>MediBill Cloud | Patient Management</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/patient.css">
+</head>
+
+<body>
+    <aside class="sidebar">
+        <div class="logo">
+            <div class="logo-icon">
+                <i class="fa-solid fa-heart-pulse"></i>
+            </div>
+
+            <div>
+                <h2>MediBill</h2>
+                <p>Healthcare</p>
+            </div>
+        </div>
+
+        <nav aria-label="Main navigation">
+            <ul class="menu">
+                <li>
+                    <a href="dashboard.html">
+                        <i class="fa-solid fa-house"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+
+                <li class="active">
+                    <a href="patient.html">
+                        <i class="fa-solid fa-user-group"></i>
+                        <span>Patients</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="billing.html">
+                        <i class="fa-solid fa-file-invoice-dollar"></i>
+                        <span>Billing</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="History.html">
+                        <i class="fa-solid fa-clock-rotate-left"></i>
+                        <span>Billing History</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="logout">
+            <a href="login.html" id="logoutBtn">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span>Sign out</span>
+            </a>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <div class="dashboard-container">
+            <header class="topbar patient-hero">
+                <div class="hero-left">
+                    <p class="eyebrow">PATIENT RECORDS</p>
+
+                    <h1>
+                        <i class="fa-solid fa-user-doctor"></i>
+                        Patient Management
+                    </h1>
+
+                    <p>
+                        Add and manage patient information securely from one place.
+                    </p>
+
+                    <div class="hero-stats">
+                        <div class="hero-card">
+                            <i class="fa-solid fa-user-group"></i>
+
+                            <div>
+                                <h3 id="patientCount">0</h3>
+                                <span>Total Patients</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-right">
+                    <i class="fa-solid fa-hospital-user hero-icon" aria-hidden="true"></i>
+
+                    <button type="button" class="primary-btn" id="openPatientForm">
+                        <i class="fa-solid fa-user-plus"></i>
+                        Add Patient
+                    </button>
+                </div>
+            </header>
+
+            <section class="card" id="patientFormCard">
+                <div class="card-heading">
+                    <div>
+                        <p class="eyebrow">NEW RECORD</p>
+                        <h3>Add New Patient</h3>
+                    </div>
+                </div>
+
+                <form id="patientForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="patientName">Patient Name</label>
+                            <input
+                                type="text"
+                                id="patientName"
+                                placeholder="Enter patient name"
+                                maxlength="100"
+                                required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="age">Age</label>
+                            <input
+                                type="number"
+                                id="age"
+                                min="1"
+                                max="130"
+                                placeholder="Enter age"
+                                required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="gender">Gender</label>
+                            <select id="gender" required>
+                                <option value="">Select gender</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input
+                                type="tel"
+                                id="phone"
+                                maxlength="30"
+                                placeholder="Enter phone number">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="disease">Condition / Disease</label>
+                            <input
+                                type="text"
+                                id="disease"
+                                maxlength="150"
+                                placeholder="Enter condition">
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="address">Address</label>
+                            <textarea
+                                id="address"
+                                rows="4"
+                                maxlength="500"
+                                placeholder="Enter address"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-buttons">
+                        <button type="submit" class="primary-btn">
+                            <i class="fa-solid fa-floppy-disk"></i>
+                            Save Patient
+                        </button>
+
+                        <button type="reset" class="secondary-btn">
+                            <i class="fa-solid fa-rotate-left"></i>
+                            Reset
+                        </button>
+                    </div>
+                </form>
+            </section>
+
+            <section class="card" id="patientTableCard">
+                <div class="card-heading">
+                    <div>
+                        <p class="eyebrow">ALL RECORDS</p>
+                        <h3>Patient List</h3>
+                    </div>
+
+                    <div class="search-box">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input
+                            type="search"
+                            id="searchPatient"
+                            placeholder="Search patients"
+                            autocomplete="off">
+                    </div>
+                </div>
+
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Age</th>
+                                <th>Gender</th>
+                                <th>Phone</th>
+                                <th>Condition</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="patientTableBody">
+                            <tr>
+                                <td colspan="6" class="empty-state">
+                                    Loading patient records...
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <footer class="footer">
+                <p>&copy; 2026 MediBill Healthcare. All rights reserved.</p>
+            </footer>
+        </div>
+    </main>
+
+    <script src="../js/patient.js"></script>
+</body>
+</html>

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Create a patient medical bill in MediBill Cloud.">
+    <title>MediBill Cloud | Create Bill</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/billing.css">
+</head>
+
+<body>
+    <aside class="sidebar">
+        <div class="logo">
+            <div class="logo-icon">
+                <i class="fa-solid fa-heart-pulse"></i>
+            </div>
+
+            <div>
+                <h2>MediBill</h2>
+                <p>Healthcare</p>
+            </div>
+        </div>
+
+        <nav aria-label="Main navigation">
+            <ul class="menu">
+                <li>
+                    <a href="dashboard.html">
+                        <i class="fa-solid fa-house"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="patient.html">
+                        <i class="fa-solid fa-user-group"></i>
+                        <span>Patients</span>
+                    </a>
+                </li>
+
+                <li class="active">
+                    <a href="billing.html">
+                        <i class="fa-solid fa-file-invoice-dollar"></i>
+                        <span>Billing</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="History.html">
+                        <i class="fa-solid fa-clock-rotate-left"></i>
+                        <span>Billing History</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="logout">
+            <a href="login.html" id="logoutBtn">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span>Sign out</span>
+            </a>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <div class="dashboard-container">
+            <header class="page-header">
+                <div>
+                    <p class="eyebrow">BILLING</p>
+                    <h1>
+                        <i class="fa-solid fa-file-invoice-dollar"></i>
+                        Create medical bill
+                    </h1>
+                    <p>Generate an accurate invoice for consultation services and medicines.</p>
+                </div>
+
+                <a href="History.html" class="secondary-btn">
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                    View History
+                </a>
+            </header>
+
+            <section class="welcome-card">
+                <div class="welcome-left">
+                    <h2>
+                        <i class="fa-solid fa-user-nurse"></i>
+                        Welcome, <span id="receptionistName">Receptionist</span>
+                    </h2>
+                    <p>Complete the details below to create a new medical invoice.</p>
+                </div>
+
+                <div class="welcome-right" aria-hidden="true">
+                    <i class="fa-solid fa-file-invoice-dollar"></i>
+                </div>
+            </section>
+
+            <section class="card">
+                <h2>
+                    <i class="fa-solid fa-file-invoice"></i>
+                    Invoice details
+                </h2>
+
+                <form id="billingForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="billNumber">Bill Number</label>
+                            <input
+                                type="text"
+                                id="billNumber"
+                                name="billNumber"
+                                readonly
+                                placeholder="Auto generated">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="patientSelect">Select Patient</label>
+                            <select id="patientSelect" name="patientSelect" required>
+                                <option value="">Select patient</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="billing-section-heading">
+                        <div>
+                            <h3>Service details</h3>
+                            <p>Add consultations, laboratory services, or treatments.</p>
+                        </div>
+
+                        <button type="button" id="addService" class="primary-btn">
+                            <i class="fa-solid fa-plus"></i>
+                            Add Service
+                        </button>
+                    </div>
+
+                    <div class="table-wrap">
+                        <table class="billing-table" id="serviceTable">
+                            <thead>
+                                <tr>
+                                    <th>Service</th>
+                                    <th>Quantity</th>
+                                    <th>Unit Price</th>
+                                    <th>Amount</th>
+                                    <th aria-label="Action"></th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+
+                    <div class="billing-section-heading">
+                        <div>
+                            <h3>Medicine details</h3>
+                            <p>Medicine stock is checked before the bill is generated.</p>
+                        </div>
+
+                        <button type="button" id="addMedicine" class="primary-btn">
+                            <i class="fa-solid fa-plus"></i>
+                            Add Medicine
+                        </button>
+                    </div>
+
+                    <div class="table-wrap">
+                        <table class="billing-table" id="medicineTable">
+                            <thead>
+                                <tr>
+                                    <th>Medicine</th>
+                                    <th>Available</th>
+                                    <th>Quantity</th>
+                                    <th>Unit Price</th>
+                                    <th>Amount</th>
+                                    <th aria-label="Action"></th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+
+                    <div class="summary-section">
+                        <h3>Payment summary</h3>
+
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="subtotal">Subtotal</label>
+                                <input type="text" id="subtotal" readonly value="0.00">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="gst">GST (%)</label>
+                                <input
+                                    type="number"
+                                    id="gst"
+                                    min="0"
+                                    max="100"
+                                    step="0.01"
+                                    value="18"
+                                    required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="totalAmount">Total Amount</label>
+                                <input type="text" id="totalAmount" readonly value="0.00">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="paymentMethod">Payment Method</label>
+                                <select id="paymentMethod" required>
+                                    <option value="Cash">Cash</option>
+                                    <option value="UPI">UPI</option>
+                                    <option value="Card">Card</option>
+                                    <option value="Net Banking">Net Banking</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-buttons">
+                        <button type="submit" class="primary-btn">
+                            <i class="fa-solid fa-file-circle-plus"></i>
+                            Generate Bill
+                        </button>
+
+                        <button type="reset" class="secondary-btn">
+                            <i class="fa-solid fa-rotate-left"></i>
+                            Reset
+                        </button>
+                    </div>
+                </form>
+            </section>
+
+            <footer class="footer">
+                <p>&copy; 2026 MediBill Healthcare. All rights reserved.</p>
+            </footer>
+        </div>
+    </main>
+
+    <script src="../js/billing.js"></script>
+</body>
+</html>
