@@ -200,44 +200,12 @@ AFTER patient_id;
 ALTER TABLE patients
 ADD CONSTRAINT fk_patients_created_by
 FOREIGN KEY (created_by)
-REFERENCES users(id);
+REFERENCES users(id)
+ON DELETE SET NULL;
 
 ALTER TABLE bills
 ADD CONSTRAINT fk_bills_created_by
 FOREIGN KEY (created_by)
-REFERENCES users(id);
-
-
----------------------------------
-
-
-ALTER TABLE users
-ADD COLUMN role ENUM('Admin', 'Receptionist')
-NOT NULL DEFAULT 'Receptionist'
-AFTER password;
-
-ALTER TABLE patients
-ADD COLUMN created_by INT NULL
-AFTER id;
-
-ALTER TABLE bills
-ADD COLUMN created_by INT NULL
-AFTER patient_id;
-
-ALTER TABLE patients
-ADD CONSTRAINT fk_patients_user
-FOREIGN KEY (created_by)
 REFERENCES users(id)
 ON DELETE SET NULL;
-
-ALTER TABLE bills
-ADD CONSTRAINT fk_bills_user
-FOREIGN KEY (created_by)
-REFERENCES users(id)
-ON DELETE SET NULL;
-
-UPDATE users
-SET role = 'Admin'
-WHERE email = 'admin@gmail.com';
-
 

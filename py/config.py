@@ -1,6 +1,27 @@
-DB_HOST = "localhost"
-DB_USER = "root"
-DB_PASSWORD = "Admin"
-DB_NAME = "medibill_db"
+"""Runtime configuration supplied by the deployment environment.
 
-SECRET_KEY = "medibill-local-development-secret-change-this"
+Set these values in Lambda Environment variables (or locally in your shell).
+Never commit database passwords or a Flask secret key to source control.
+"""
+
+import os
+
+
+DB_HOST = os.environ["DB_HOST"]
+DB_PORT = int(os.getenv("DB_PORT", "3306"))
+DB_USER = os.environ["DB_USER"]
+DB_PASSWORD = os.environ["DB_PASSWORD"]
+DB_NAME = os.environ["DB_NAME"]
+SECRET_KEY = os.environ["SECRET_KEY"]
+
+# A comma-separated list of browser origins allowed to call the API directly.
+# CloudFront deployments normally use the same origin, so no extra value is
+# needed there.  The default makes local development work with Live Server.
+CORS_ORIGINS = [
+    origin.strip()
+    for origin in os.getenv(
+        "CORS_ORIGINS",
+        "http://127.0.0.1:5500,http://localhost:5500"
+    ).split(",")
+    if origin.strip()
+]

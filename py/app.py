@@ -1,3 +1,4 @@
+import os
 from decimal import Decimal, InvalidOperation, ROUND_HALF_UP
 from functools import wraps
 
@@ -6,7 +7,7 @@ from flask import Flask, jsonify, request, session
 from flask_cors import CORS
 from werkzeug.security import check_password_hash, generate_password_hash
 
-from config import SECRET_KEY
+from config import CORS_ORIGINS, SECRET_KEY
 from db import get_connection
 
 app = Flask(__name__)
@@ -14,11 +15,14 @@ app = Flask(__name__)
 app.config["SECRET_KEY"] = SECRET_KEY
 app.config["SESSION_COOKIE_HTTPONLY"] = True
 app.config["SESSION_COOKIE_SAMESITE"] = "Lax"
+app.config["SESSION_COOKIE_SECURE"] = (
+    os.getenv("SESSION_COOKIE_SECURE", "false").lower() == "true"
+)
 
 CORS(
     app,
     supports_credentials=True,
-    origins=r"^https?://(127\.0\.0\.1|localhost)(:\d+)?$"
+    origins=CORS_ORIGINS
 )
 
 PAYMENT_METHODS = {"Cash", "UPI", "Card", "Net Banking"}
@@ -1048,4 +1052,8 @@ def dashboard():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(
+        host=os.getenv("HOST", "127.0.0.1"),
+        port=int(os.getenv("PORT", "5000")),
+        debug=os.getenv("FLASK_DEBUG", "false").lower() == "true"
+    )
