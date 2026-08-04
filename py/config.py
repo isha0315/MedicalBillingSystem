@@ -7,7 +7,7 @@ Never commit database passwords or a Flask secret key to source control.
 import os
 
 
-DB_HOST = os.environ["DB_HOST"]
+DB_HOST = os.environ["medibill-db.c8fkemycy9sg.us-east-1.rds.amazonaws.com"]
 DB_PORT = int(os.getenv("DB_PORT", "3306"))
 DB_USER = os.environ["DB_USER"]
 DB_PASSWORD = os.environ["DB_PASSWORD"]
