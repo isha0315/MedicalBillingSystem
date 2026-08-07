@@ -198,7 +198,12 @@ def register():
     except ValueError as error:
         return error_response(str(error))
 
-    except mysql.connector.Error:
+    except mysql.connector.Error as error:
+        app.logger.exception(
+            "Registration database error: %s",
+            error
+        )
+
         if connection:
             connection.rollback()
 
@@ -309,7 +314,12 @@ def login():
     except ValueError as error:
         return error_response(str(error))
 
-    except mysql.connector.Error:
+    except mysql.connector.Error as error:
+        app.logger.exception(
+            "Login database error: %s",
+            error
+        )
+
         return error_response(
             "Unable to sign in right now.",
             500
