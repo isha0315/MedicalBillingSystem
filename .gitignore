@@ -1,0 +1,27 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Python virtual/dependency files
+py/bin/
+py/lib/
+py/include/
+py/*/__pycache__/
+py/*.dist-info/
+py/blinker/
+py/click/
+py/colorama/
+py/flask/
+py/flask_cors/
+py/itsdangerous/
+py/jinja2/
+py/markupsafe/
+py/mysql/
+py/werkzeug/
+py/serverless_wsgi.py
+py/*mysql_connector*.pyd
+
+# Deployment package
+package/
+*.zip
