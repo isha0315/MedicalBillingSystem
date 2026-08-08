@@ -453,30 +453,48 @@ def patients():
         connection = get_connection()
         cursor = connection.cursor(dictionary=True)
 
-        where, params = scope("p")
-
-        cursor.execute(
-            """
-            SELECT
-                p.id,
-                p.patient_name,
-                p.age,
-                p.gender,
-                p.phone,
-                p.disease
-            FROM patients p
-            """
-            + where
-            + " ORDER BY p.id DESC",
-            params
-        )
+        if is_admin():
+            cursor.execute(
+                """
+                SELECT
+                    p.id,
+                    p.patient_name,
+                    p.age,
+                    p.gender,
+                    p.phone,
+                    p.disease
+                FROM patients p
+                ORDER BY p.id DESC
+                """
+            )
+        else:
+            cursor.execute(
+                """
+                SELECT
+                    p.id,
+                    p.patient_name,
+                    p.age,
+                    p.gender,
+                    p.phone,
+                    p.disease
+                FROM patients p
+                WHERE p.created_by = %s OR p.created_by IS NULL
+                ORDER BY p.id DESC
+                """,
+                (user_id(),)
+            )
 
         return jsonify(
             success=True,
             patients=cursor.fetchall()
         )
 
-    except mysql.connector.Error:
+    except mysql.connector.Error as error:
+        app.logger.exception(
+            "Patient list database error: %s",
+            error
+        )
+
         return error_response(
             "Unable to load patients.",
             500
@@ -620,7 +638,8 @@ def generate_bill():
                 """
                 SELECT id
                 FROM patients
-                WHERE id = %s AND created_by = %s
+                WHERE id = %s
+                  AND (created_by = %s OR created_by IS NULL)
                 """,
                 (patient_id, user_id())
             )

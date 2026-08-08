@@ -530,20 +530,22 @@ function loadLoggedInUser() {
 }
 
 
-addServiceButton.addEventListener("click", addServiceRow);
-addMedicineButton.addEventListener("click", addMedicineRow);
+document.addEventListener("DOMContentLoaded", async () => {
+    addServiceButton.addEventListener("click", addServiceRow);
+    addMedicineButton.addEventListener("click", addMedicineRow);
 
-gstInput.addEventListener("input", calculateTotals);
+    gstInput.addEventListener("input", calculateTotals);
 
-billingForm.addEventListener("submit", generateBill);
-billingForm.addEventListener("reset", resetBillForm);
+    billingForm.addEventListener("submit", generateBill);
+    billingForm.addEventListener("reset", resetBillForm);
 
-generateBillNumber();
-calculateTotals();
-loadLoggedInUser();
+    generateBillNumber();
+    calculateTotals();
+    loadLoggedInUser();
 
-Promise.all([
-    loadPatients(),
-    loadServices(),
-    loadMedicines()
-]);
+    await Promise.all([
+        loadPatients(),
+        loadServices(),
+        loadMedicines()
+    ]);
+});
